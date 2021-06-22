@@ -1,0 +1,15 @@
+<%- include("partials/header"); -%>
+<h3>USER: <%= userName %></h3>
+<h3>ROOM ID: <%= roomId %></h3>
+<div id="video-chat-room">
+  <video id="user-video"></video>
+  <video id="peer-video"></video>
+</div>
+
+</body>
+<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+<script>
+  const roomID = "<%= roomId %>"
+</script>
+<script src="/js/call.js"></script>
+</html>
