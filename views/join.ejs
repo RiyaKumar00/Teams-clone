@@ -1,0 +1,14 @@
+<%- include("partials/header"); -%>
+<div class="joinContentContainer">
+<img class="connectImg" src="/images/connect.png" alt="connection image">
+<p class="taskQuery spaced-bottom">Paste the meeting link below to join</p>
+<div class="joinContent">
+  <form action="/user/<%= userName %>/incall" method="post">
+    <input id="linkInput" class="spaced-top" type="text" name="meetingLink" required>
+    <button class="buttonDesign spaced-top" type="submit" name="button">JOIN</button>
+  </form>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/js/index.js"></script>
+</html>

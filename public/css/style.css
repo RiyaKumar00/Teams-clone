@@ -1,0 +1,149 @@
+label{
+  color: white;
+  font-size: 1.5rem;
+}
+input{
+  color: white;
+}
+lottie-player {
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.homepageBody{
+  background-color: #464EB8;
+  font-family: 'Montserrat', sans-serif;
+}
+.templateBody{
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+.header{
+  background-color: #464EB8;
+  height: 3.5rem;
+  position:absolute;
+  text-align: center;
+  top:0;
+  width: 100%;
+}
+.Appname{
+  bottom:25%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: lighter;
+  position: relative;
+}
+.container{
+  background-color: #666bb3;
+  background-color: rgba(255, 255, 255, 0.20);
+  border-radius: 5px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  height: 15rem;
+  width: 36rem;
+}
+.welcomeHeading{
+  color: white;
+  font-size: 8rem;
+  margin-bottom: 0.1em;
+  text-align: center;
+}
+.welcomeSubheading{
+  color: white;
+  margin: 0 0 0.8em 0;
+  text-align: center;
+}
+.inputForm{
+  padding: 3em;
+}
+.sbutton{
+  background-color: #3c45a3;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+  color: white;
+  display: block;
+  font-size: 1.5em;
+  height: 1.8em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.8em;
+  width: 3.6em;
+}
+button:hover{
+  background-color: #464EB8;
+}
+.homeConentContainer{
+  text-align: center;
+}
+.homeContent{
+  display: inline-block;
+  text-align: left;
+}
+.taskQuery{
+  color: #7B83EB;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: -2.5rem;
+}
+.buttonDesign{
+  background-color: #3c45a3;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+  color: white;
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  width: 15rem;
+}
+.spaced-left{
+  margin-left: 15rem;
+}
+.spaced-top{
+  margin-top: 3rem;
+}
+.spaced-bottom{
+  margin-bottom: 3rem;
+}
+.joinContentContainer{
+  text-align: center;
+}
+.joinContent{
+  padding: 0 22rem 0 22rem;
+}
+.connectImg{
+  height: 175px;
+  margin-top: 6rem;
+  width: 175px;
+}
+.navButton{
+  background-color: transparent;
+  border: none;
+}
+.navButton:hover{
+  background-color: transparent;
+}
+.back{
+  float: left;
+}
+.home{
+  float: right;
+}
+.backImg{
+  bottom: 15%;
+  left:1%;
+  position: absolute;
+  width: 2.5rem;
+}
+.homeImg{
+  bottom: 15%;
+  position: absolute;
+  right:1%;
+  width: 2.5rem;
+}
+#linkInput{
+  border: 1px solid #7B83EB;
+  border-radius: 10px;
+  color: #7B83EB;
+  padding: 0.2rem;
+  text-decoration: underline;
+}

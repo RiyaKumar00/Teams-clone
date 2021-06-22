@@ -1,0 +1,13 @@
+<%- include("partials/header"); -%>
+  <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_Lcwy20.json"  background="transparent"  speed="1"  style="width: 375px; height: 375px;"  loop  autoplay></lottie-player>
+<div class="homeConentContainer">
+  <div class="homeContent">
+    <p class="taskQuery">Hey <%= userName %>! What would you like to do today?</p>
+    <form  method="post">
+      <button formaction="/user/<%= userName %>/startCall" class="buttonDesign" type="submit" name="startCallButton">START A CALL</button>
+      <button formaction="/user/<%= userName %>/joinCall" class="buttonDesign spaced-left" type="submit" name="joinCallButton">JOIN A CALL</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
