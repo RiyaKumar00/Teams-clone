@@ -13,7 +13,7 @@ app.use(express.static('public'));
 var user;
 
 app.get('/', function(req,res){
-  res.sendFile(__dirname +"/index.html");
+  res.render('index');
 })
 
 app.post('/', function(req,res){
