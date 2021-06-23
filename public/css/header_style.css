@@ -1,0 +1,40 @@
+.header{
+  background-color: #464EB8;
+  height: 9vh;
+  position:absolute;
+  text-align: center;
+  top:0;
+  width: 100%;
+}
+.Appname{
+  bottom:25%;
+  color: white;
+  font-size: 4vh;
+  font-weight: lighter;
+  position: relative;
+}
+.navButton{
+  background-color: transparent;
+  border: none;
+}
+.navButton:hover{
+  background-color: transparent;
+}
+.back{
+  float: left;
+}
+.home{
+  float: right;
+}
+.backImg{
+  bottom: 18%;
+  left:1%;
+  position: absolute;
+  width: 6vh;
+}
+.homeImg{
+  bottom: 18%;
+  position: absolute;
+  right:1%;
+  width: 6vh;
+}

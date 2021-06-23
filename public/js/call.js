@@ -1,6 +1,8 @@
 var socket = io.connect("http://localhost:3000/");
 var userVideo = document.getElementById("user-video");
 var peerVideo = document.getElementById("peer-video");
+var cameraButton = document.getElementById("cameraButton");
+var micButton = document.getElementById("micButton");
 // var roomInput = document.getElementById("roomName");
 var creator = false;
 var rtcPeerConnection;
@@ -14,14 +16,14 @@ var iceServers = {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    socket.emit("join", roomID);
+  socket.emit("join", roomID);
 });
 
 socket.on('created', function(){
   creator = true;
   navigator.getUserMedia({
     audio: true,
-    video: {width: 400, height: 400},
+    video: true,
   },
   function(stream){
     userStream = stream;
@@ -38,7 +40,7 @@ socket.on('created', function(){
 socket.on('joined', function(){
   navigator.getUserMedia({
     audio: true,
-    video: {width: 400, height: 400},
+    video: true,
   },
   function(stream){
     userStream = stream;
@@ -103,11 +105,13 @@ socket.on('offer', function(offer){
       });
   }
 });
-
 socket.on('answer', function(answer){
   rtcPeerConnection.setRemoteDescription(answer);
 });
 
+socket.on('peerDisconnected', function(){
+  removePeerVideo();
+})
 
 function OnIceCandidatefunction(event){
   if(event.candidate){
@@ -120,4 +124,5 @@ function OnTrackfunction(event){
   peerVideo.onloadedmetadata = function(e){
     peerVideo.play();
   };
+  displayPeerVideo();
 }

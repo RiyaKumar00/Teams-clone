@@ -11,9 +11,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 var user;
+var roomID;
 
 app.get('/', function(req,res){
-  res.render('index');
+  res.render('welcome');
 })
 
 app.post('/', function(req,res){
@@ -23,19 +24,21 @@ app.post('/', function(req,res){
 })
 
 app.get('/user/:username',function(req,res){
+  user = req.params.username;
   res.render("home", {userName: user})
 })
 
 app.post('/user/:username/joinCall',function(req,res){
+  user = req.params.username;
   res.render("join", {userName: user});
 })
 
 app.post('/user/:username/startCall',function(req,res){
-  var roomID = uuidv4();
-  res.redirect(`/${roomID}`);
+  roomID = uuidv4();
+  res.redirect('/call'+`/${roomID}`);
 })
 
-app.get('/:roomID', function(req,res){
+app.get('/call/:roomID', function(req,res){
   res.render('room', {userName: user, roomId: req.params.roomID});
 })
 
@@ -77,7 +80,6 @@ io.on('connection', function(socket){
   });
 
   socket.on('candidate', function(candidate, roomName){
-    console.log(candidate);
     socket.broadcast.to(roomName).emit("candidate", candidate);
   });
 
@@ -88,5 +90,10 @@ io.on('connection', function(socket){
   socket.on('answer', function(answer, roomName){
     socket.broadcast.to(roomName).emit("answer", answer);
   });
+
+  socket.on('disconnect', function(){
+    io.sockets.in(roomID).emit("peerDisconnected");
+    console.log("User disconnected!");
+  })
 
 })

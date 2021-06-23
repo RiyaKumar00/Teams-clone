@@ -1,15 +1,41 @@
-<%- include("partials/header"); -%>
-<h3>USER: <%= userName %></h3>
-<h3>ROOM ID: <%= roomId %></h3>
-<div id="video-chat-room">
-  <video id="user-video"></video>
-  <video id="peer-video"></video>
-</div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
+<head>
+  <meta charset="utf-8">
+  <title>Meeting Room</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/room_style.css">
+  <link rel="stylesheet" href="/css/header_style.css">
+</head>
+
+<body>
+  <div class="header">
+    <p class="Appname">ONGOING CALL</p>
+    <button onclick="goBack()" class="navButton back" type="button" name="button"> <img class="backImg" src="/images/navigate_before.png"></img></button>
+    <button onclick="location.href='/'" class="navButton home" type="button" name="button"> <img class="homeImg" src="/images/home.png"></img></button>
+  </div>
+  <div class="main-screen">
+  <div class="column left-controls">
+    <button onclick="playPause()" id="cameraButton" class="controls camera-button" type="button" name="button"></button>
+    <button onclick="muteUnmute()" id="micButton" class="controls mic-button" type="button" name="button"></button>
+    <button onclick="shareLink()" class="controls invite-button" type="button" name="button"></button>
+    <button onclick="goBack()" class="controls disconnect-button" type="button" name="button"></button>
+  </div>
+  <div class="column video-frame">
+    <div id="video-chat-grid">
+      <video class="userVideo" id="user-video"></video>
+      <video class="peerVideo" id="peer-video"></video>
+    </div>
+  </div>
+</div>
 </body>
 <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
 <script>
   const roomID = "<%= roomId %>"
 </script>
 <script src="/js/call.js"></script>
+<script type="text/javascript" src="/js/functions.js"></script>
 </html>
