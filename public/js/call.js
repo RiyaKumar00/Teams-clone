@@ -3,7 +3,7 @@ var userVideo = document.getElementById("user-video");
 var peerVideo = document.getElementById("peer-video");
 var cameraButton = document.getElementById("cameraButton");
 var micButton = document.getElementById("micButton");
-// var roomInput = document.getElementById("roomName");
+var message = document.getElementById("messageInput");
 var creator = false;
 var rtcPeerConnection;
 var userStream;
@@ -109,6 +109,11 @@ socket.on('answer', function(answer){
   rtcPeerConnection.setRemoteDescription(answer);
 });
 
+socket.on('broadcastMessage', function(data){
+  console.log(data.message);
+  addChat(data);
+});
+
 socket.on('peerDisconnected', function(){
   removePeerVideo();
 })
@@ -125,4 +130,12 @@ function OnTrackfunction(event){
     peerVideo.play();
   };
   displayPeerVideo();
+}
+
+function emitMessage(){
+  socket.emit('sendingMessage', {
+    'message': messageInput.value,
+    'username': username
+  }, roomID);
+  message.value='';
 }

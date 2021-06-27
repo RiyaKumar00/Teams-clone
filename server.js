@@ -35,16 +35,16 @@ app.post('/user/:username/joinCall',function(req,res){
 
 app.post('/user/:username/startCall',function(req,res){
   roomID = uuidv4();
-  res.redirect('/call'+`/${roomID}`);
+  res.redirect('/call'+`/${req.params.username}`+`/${roomID}`);
 })
 
-app.get('/call/:roomID', function(req,res){
-  res.render('room', {userName: user, roomId: req.params.roomID});
+app.get('/call/:user/:roomID', function(req,res){
+  res.render('room', {userName: req.params.user, roomId: req.params.roomID});
 })
 
-app.post('/user/:userName/incall', function(req,res){
-  var joinMeetingLink = req.body.meetingLink;
-  res.redirect(joinMeetingLink);
+app.post('/user/:username/incall', function(req,res){
+  var meetingID = req.body.meetingLink;
+  res.redirect('/call'+`/${req.params.username}`+`/${meetingID}`);
 })
 
 var server = app.listen(process.env.PORT || 3000, function(){
@@ -90,6 +90,11 @@ io.on('connection', function(socket){
   socket.on('answer', function(answer, roomName){
     socket.broadcast.to(roomName).emit("answer", answer);
   });
+
+  socket.on('sendingMessage', function(data, roomName){
+    console.log(data);
+    io.sockets.in(roomName).emit("broadcastMessage", data);
+  })
 
   socket.on('disconnect', function(){
     io.sockets.in(roomID).emit("peerDisconnected");

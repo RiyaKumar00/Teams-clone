@@ -63,6 +63,10 @@ lottie-player {
 button:hover{
   background-color: #464EB8;
 }
+button:focus {
+  box-shadow: none;
+  outline: none!important;
+}
 .homeConentContainer{
   text-align: center;
   margin-left: 2vw;
@@ -75,7 +79,7 @@ button:hover{
   color: #7B83EB;
   font-size: 5vh;
   font-weight: bold;
-  margin-top: -5.5vh;
+  margin-top: -6vh;
 }
 .buttonDesign{
   background-color: #3c45a3;
@@ -84,7 +88,7 @@ button:hover{
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
   color: white;
   font-size: 3.6vh;
-  margin-top: 0.5vh;
+  margin-top: 1vh;
   padding: 2.1vh;
   width: 35vh;
 }
@@ -95,7 +99,7 @@ button:hover{
   margin-top: 7vh;
 }
 .spaced-bottom{
-  margin-bottom: 7vh;
+  margin-bottom: 5vh;
 }
 .joinContentContainer{
   text-align: center;
@@ -105,13 +109,17 @@ button:hover{
 }
 .connectImg{
   height: 30vh;
-  margin-top: 16vh;
+  margin-top: 18vh;
   width: 30vh;
+  margin-bottom: 3vh;
 }
 #linkInput{
   border: 1px solid #7B83EB;
   border-radius: 10px;
   color: #7B83EB;
   padding: 0.8vh;
+  width: 45vw;
+  height: 8vh;
   text-decoration: underline;
+  margin-top: 0;
 }

@@ -7,9 +7,9 @@
   width: 100%;
 }
 .Appname{
-  bottom:25%;
+  top:12%;
   color: white;
-  font-size: 4vh;
+  font-size: 4.5vh;
   font-weight: lighter;
   position: relative;
 }

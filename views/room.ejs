@@ -7,7 +7,11 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/room_style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/style_room.css">
   <link rel="stylesheet" href="/css/header_style.css">
 </head>
 
@@ -18,23 +22,54 @@
     <button onclick="location.href='/'" class="navButton home" type="button" name="button"> <img class="homeImg" src="/images/home.png"></img></button>
   </div>
   <div class="main-screen">
-  <div class="column left-controls">
-    <button onclick="playPause()" id="cameraButton" class="controls camera-button" type="button" name="button"></button>
-    <button onclick="muteUnmute()" id="micButton" class="controls mic-button" type="button" name="button"></button>
-    <button onclick="shareLink()" class="controls invite-button" type="button" name="button"></button>
-    <button onclick="goBack()" class="controls disconnect-button" type="button" name="button"></button>
-  </div>
   <div class="column video-frame">
     <div id="video-chat-grid">
-      <video class="userVideo" id="user-video"></video>
-      <video class="peerVideo" id="peer-video"></video>
+      <video class="centered userVideo" id="user-video"></video>
+      <video class="hidden peerVideo" id="peer-video"></video>
+    </div>
+  </div>
+  <div class="hidden column live-chat" id="liveChat">
+    <div class="chat-heading">Chat</div>
+    <div class="chat-window" id="chat-window">
+      <div class="output" id="output"></div>
+    </div>
+    <form class="form-inline">
+      <input class="messageInput" id="messageInput" type="text" name="" value="" placeholder="write a message...">
+      <button onclick="emitMessage()" class="controls sendMessage" id="sendMessage" type="button" name="button"></button>
+    </form>
+  </div>
+</div>
+<div class="column bottom-controls" id="controls-panel">
+  <button onclick="goBack()" class="controls disconnect-button" type="button" name="button"></button>
+  <button data-toggle="modal" data-target="#shareMeetingLink" class="controls invite-button" type="button" name="button"></button>
+  <button onclick="muteUnmute()" id="micButton" class="controls mic-button" type="button" name="button"></button>
+  <button onclick="playPause()" id="cameraButton" class="controls camera-button" type="button" name="button"></button>
+  <button onclick="showHideChat()" id="chatButton" class="controls chat-button" type="button" name="button"></button>
+</div>
+<div class="modal fade" id="shareMeetingLink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share Meeting ID</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Share this meeting ID to add participants:
+        <p class="link" id="linkSpace"><%= roomId %></p>
+      </div>
+      <div class="modal-footer">
+        <span id="copiedSuccess"></span><button onclick="copyLink()" id="copyLinkButton" type="button" class="btn btn-secondary">Copy</button>
+      </div>
     </div>
   </div>
 </div>
 </body>
 <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
 <script>
-  const roomID = "<%= roomId %>"
+  const roomID = "<%= roomId %>";
+  const username = "<%= userName %>";
 </script>
 <script src="/js/call.js"></script>
 <script type="text/javascript" src="/js/functions.js"></script>
