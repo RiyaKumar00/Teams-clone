@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const ejs = require("ejs");
 const { v4: uuidv4 } = require('uuid');
 const socket = require('socket.io');
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -47,8 +47,8 @@ app.post('/user/:username/incall', function(req,res){
   res.redirect('/call'+`/${req.params.username}`+`/${meetingID}`);
 })
 
-var server = app.listen(process.env.PORT || 3000, function(){
-  console.log("Server is running on port 3000.")
+var server = app.listen(PORT, function(){
+  console.log("Server is running on port " + PORT);
 })
 
 // SOCKET CONNECTION - VIDEO CALL FUNCTIONALITY

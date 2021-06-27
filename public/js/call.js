@@ -1,4 +1,4 @@
-var socket = io.connect("http://localhost:3000/");
+var socket = io.connect();
 var userVideo = document.getElementById("user-video");
 var peerVideo = document.getElementById("peer-video");
 var cameraButton = document.getElementById("cameraButton");
@@ -21,37 +21,33 @@ document.addEventListener('DOMContentLoaded', function(){
 
 socket.on('created', function(){
   creator = true;
-  navigator.getUserMedia({
+  navigator.mediaDevices.getUserMedia({
     audio: true,
     video: true,
-  },
-  function(stream){
+  }).then(function(stream) {
     userStream = stream;
     userVideo.srcObject = stream;
     userVideo.onloadedmetadata = function(e){
       userVideo.play();
     };
-  },
-  function(){
-    console.log("Couldn't access user media");
+  }).catch(function(err) {
+    console.log(err);
   });
 });
 
 socket.on('joined', function(){
-  navigator.getUserMedia({
+  navigator.mediaDevices.getUserMedia({
     audio: true,
     video: true,
-  },
-  function(stream){
+  }).then(function(stream) {
     userStream = stream;
     userVideo.srcObject = stream;
     userVideo.onloadedmetadata = function(e){
       userVideo.play();
     };
     socket.emit('ready', roomID);
-  },
-  function(){
-    console.log("Couldn't access user media");
+  }).catch(function(err) {
+    console.log(err);
   });
 });
 
