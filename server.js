@@ -29,22 +29,30 @@ app.get('/user/:username',function(req,res){
 })
 
 app.post('/user/:username/joinCall',function(req,res){
+  res.redirect('/join'+`/${req.params.username}`);
+})
+
+app.get('/join/:username', function(req,res){
   user = req.params.username;
   res.render("join", {userName: user});
 })
 
 app.post('/user/:username/startCall',function(req,res){
   roomID = uuidv4();
-  res.redirect('/call'+`/${req.params.username}`+`/${roomID}`);
+  res.redirect('/call'+`/${req.params.username}`+`/${roomID}`+'?audio=true&video=true');
 })
 
 app.get('/call/:user/:roomID', function(req,res){
-  res.render('room', {userName: req.params.user, roomId: req.params.roomID});
+  res.render('room', {userName: req.params.user, roomId: req.params.roomID, audio: req.query.audio, video: req.query.video});
 })
 
 app.post('/user/:username/incall', function(req,res){
   var meetingID = req.body.meetingLink;
-  res.redirect('/call'+`/${req.params.username}`+`/${meetingID}`);
+  var audio = Boolean(req.body.audioControl);
+  var video = Boolean(req.body.videoControl);
+  console.log(audio);
+  console.log(video);
+  res.redirect('/call'+`/${req.params.username}`+`/${meetingID}`+'?audio='+audio+'&video='+video);
 })
 
 var server = app.listen(PORT, function(){

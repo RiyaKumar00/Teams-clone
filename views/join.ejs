@@ -1,13 +1,23 @@
 <%- include("partials/header"); -%>
 <div class="joinContentContainer">
 <img class="connectImg" src="/images/connect.png" alt="connection image">
-<p class="taskQuery spaced-bottom">Paste the meeting ID below to join</p>
+<p class="taskQuery spaced-bottom">Enter a meeting ID below to join</p>
 <div class="joinContent">
-  <form action="/user/<%= userName %>/incall" method="post">
-    <input id="linkInput" class="spaced-top" type="text" name="meetingLink" required>
-    <button class="buttonDesign spaced-top" type="submit" name="button">JOIN</button>
+  <form onsubmit="checkPrecontrols()" action="/user/<%= userName %>/incall" method="post">
+    <input id="linkInput" class="spaced-top" type="text" name="meetingLink" placeholder="Meeting ID here" required>
+    <div class="form-check form-switch">
+      <input id="videoPrecontrol" class="form-check-input" name="videoControl" type="checkbox" checked>
+      <label class="form-check-label" for="flexSwitchCheckChecked">Camera</label>
+    </div>
+    <div class="form-check form-switch">
+      <input id="audioPrecontrol" class="form-check-input" name="audioControl" type="checkbox" checked>
+      <label class="form-check-label" for="flexSwitchCheckChecked">Microphone</label>
+    </div>
+    <br>
+    <button onsubmit="checkPrecontrols()" class="buttonDesign spaced-top" type="submit" name="button">JOIN</button>
   </form>
 </div>
 </div>
+<script type="text/javascript" src="/js/functions.js"></script>
 </body>
 </html>

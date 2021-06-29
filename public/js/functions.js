@@ -8,6 +8,7 @@ var chatBox = document.getElementById("liveChat");
 var controls = document.getElementById("controls-panel");
 var chats = document.getElementById("output");
 var chatWindow = document.getElementById("chat-window");
+
 function goBack() {
   window.history.back();
 }
@@ -20,6 +21,17 @@ function displayPeerVideo(){
 function removePeerVideo(){
   peerVideo.classList.add("hidden");
   userVideo.classList.add("centered");
+}
+
+function preControls(){
+  console.log(videoPrecontrol);
+  console.log(audioPrecontrol);
+  if(videoPrecontrol == 'false'){
+    playPause();
+  }
+  if(audioPrecontrol == 'false'){
+    muteUnmute();
+  }
 }
 
 function playPause(){
@@ -66,6 +78,10 @@ function showHideChat(){
 function copyLink(){
   navigator.clipboard.writeText(roomID);
   copyStatus.innerHTML = "Copied!";
+}
+
+function clearCopied(){
+  copyStatus.innerHTML = "";
 }
 
 function addChat(data){

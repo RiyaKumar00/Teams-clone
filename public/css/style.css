@@ -1,3 +1,120 @@
+@media only screen and (min-width: 700px) {
+  .welcomeHeading{
+    color: white;
+    font-size: 20.8vh;
+    margin-bottom: 1vh;
+    text-align: center;
+  }
+  .welcomeSubheading{
+    color: white;
+    margin: 0 0 6vh 0;
+    text-align: center;
+    font-size: 8vh;
+  }
+  .container{
+    background-color: #666bb3;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    height: 39vh;
+    width: 42vw;
+  }
+  lottie-player {
+      margin: 0 auto;
+      margin-top: 15vh;
+      width: 35vw;
+      height: 100%;
+  }
+  .buttonDesign{
+    background-color: #3c45a3;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 3.6vh;
+    margin-top: 1vh;
+    padding: 2.1vh;
+    width: 35vh;
+  }
+  .spaced-left{
+    margin-left: 16vw;
+  }
+  .spaced-top{
+    margin-top: 7vh;
+  }
+  .connectImg{
+    height: 30vh;
+    margin-top: 14vh;
+    width: 30vh;
+    margin-bottom: 3vh;
+  }
+  .form-check{
+    text-align: left;
+    display: inline-block !important;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 6vh;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .welcomeHeading{
+    color: white;
+    font-size: 16vh;
+    margin-bottom: 1vh;
+    text-align: center;
+  }
+  .welcomeSubheading{
+    color: white;
+    margin: 0 0 6vh 2vw;
+    text-align: center;
+    font-size: 7.5vh;
+  }
+  .container{
+    background-color: #666bb3;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    height: 39vh;
+    width: 65vw;
+    margin-left: 18vw;
+  }
+  lottie-player {
+      margin: 0 auto;
+      margin-top: 15vh;
+      width: 75vw;
+      height: 100%;
+  }
+  .buttonDesign{
+    background-color: #3c45a3;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 3.6vh;
+    margin-top: 2vh;
+    padding: 2.1vh;
+    width: 40vw;
+  }
+  .spaced-left{
+    margin-left: 8vw;
+  }
+  .spaced-top{
+    margin-top: 3vh;
+  }
+  .connectImg{
+    height: 30vh;
+    margin-top: 10vh;
+    width: 30vh;
+    margin-bottom: 1vh;
+  }
+  .form-check{
+    text-align: left;
+    display: inline-block !important;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 2vh;
+  }
+}
 h3{
   margin-top: 10vh;
 }
@@ -8,10 +125,6 @@ label{
 input{
   color: white;
 }
-lottie-player {
-    margin: 0 auto;
-    margin-top: 4vh;
-}
 .homepageBody{
   background-color: #464EB8;
   font-family: 'Montserrat', sans-serif;
@@ -19,26 +132,6 @@ lottie-player {
 .templateBody{
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-}
-.container{
-  background-color: #666bb3;
-  background-color: rgba(255, 255, 255, 0.20);
-  border-radius: 10px;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  height: 39vh;
-  width: 42vw;
-}
-.welcomeHeading{
-  color: white;
-  font-size: 20.8vh;
-  margin-bottom: 1vh;
-  text-align: center;
-}
-.welcomeSubheading{
-  color: white;
-  margin: 0 0 6vh 0;
-  text-align: center;
-  font-size: 8vh;
 }
 .inputForm{
   padding: 3.5vw;
@@ -79,26 +172,10 @@ button:focus {
   color: #7B83EB;
   font-size: 5vh;
   font-weight: bold;
-  margin-top: -6vh;
-}
-.buttonDesign{
-  background-color: #3c45a3;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
-  color: white;
-  font-size: 3.6vh;
-  margin-top: 1vh;
-  padding: 2.1vh;
-  width: 35vh;
-}
-.spaced-left{
-  margin-left: 16vw;
-}
-.spaced-top{
-  margin-top: 7vh;
+  margin-top: 4vh;
 }
 .spaced-bottom{
+  margin-top: -5vh;
   margin-bottom: 5vh;
 }
 .joinContentContainer{
@@ -107,12 +184,7 @@ button:focus {
 .joinContent{
   padding: 0 28vw 0 28vw;
 }
-.connectImg{
-  height: 30vh;
-  margin-top: 18vh;
-  width: 30vh;
-  margin-bottom: 3vh;
-}
+
 #linkInput{
   border: 1px solid #7B83EB;
   border-radius: 10px;
@@ -120,6 +192,16 @@ button:focus {
   padding: 0.8vh;
   width: 45vw;
   height: 8vh;
-  text-decoration: underline;
-  margin-top: 0;
+  margin-top: -5vh;
+}
+.form-check-input{
+  box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) !important;
+  border-color: #464EB8 !important;
+}
+.form-check-input:checked{
+  background-color: #464EB8 !important;
+}
+.form-check-label{
+  color: #464EB8;
+  font-size: 3vh;
 }

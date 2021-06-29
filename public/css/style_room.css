@@ -36,6 +36,10 @@
   .open-chat-controls{
     width: 78vw !important;
   }
+  #copyLinkButton{
+    background-color: #464EB8;
+    width:9vw;
+  }
 }
 @media only screen and (max-width: 700px) {
   .userVideo{
@@ -75,6 +79,10 @@
   }
   .open-chat-controls{
     width: 60vw !important;
+  }
+  #copyLinkButton{
+    background-color: #464EB8;
+    width:15vw;
   }
 }
 ::-webkit-scrollbar {
@@ -186,10 +194,6 @@ video{
 .sendMessage{
   background-image: url("/images/send.png");
   margin-left: 0.5vw;
-}
-#copyLinkButton{
-  background-color: #464EB8;
-  width:9vw;
 }
 #copiedSuccess{
   color: green;

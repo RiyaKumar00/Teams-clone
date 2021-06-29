@@ -27,6 +27,7 @@ socket.on('created', function(){
   }).then(function(stream) {
     userStream = stream;
     userVideo.srcObject = stream;
+    preControls();
     userVideo.onloadedmetadata = function(e){
       userVideo.play();
     };
@@ -42,6 +43,7 @@ socket.on('joined', function(){
   }).then(function(stream) {
     userStream = stream;
     userVideo.srcObject = stream;
+    preControls();
     userVideo.onloadedmetadata = function(e){
       userVideo.play();
     };

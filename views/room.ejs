@@ -24,7 +24,7 @@
   <div class="main-screen">
   <div class="column video-frame">
     <div id="video-chat-grid">
-      <video class="centered userVideo" id="user-video"></video>
+      <video class="centered userVideo" id="user-video" muted></video>
       <video class="hidden peerVideo" id="peer-video"></video>
     </div>
   </div>
@@ -51,7 +51,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Share Meeting ID</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button onclick="clearCopied()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -70,6 +70,8 @@
 <script>
   const roomID = "<%= roomId %>";
   const username = "<%= userName %>";
+  const audioPrecontrol = "<%= audio %>";
+  const videoPrecontrol = "<%= video %>";
 </script>
 <script src="/js/call.js"></script>
 <script type="text/javascript" src="/js/functions.js"></script>
