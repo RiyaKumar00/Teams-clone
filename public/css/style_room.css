@@ -228,6 +228,7 @@ video{
   padding: 0.5vw;
   padding-left: 1vw;
   padding-right: 1vw;
+  word-wrap: break-word;
 }
 .self-message{
   text-align: right;
@@ -237,4 +238,5 @@ video{
   margin-top: 0;
   text-align: right;
   padding: 0.5vw 1vw;
+  word-wrap: break-word;
 }
