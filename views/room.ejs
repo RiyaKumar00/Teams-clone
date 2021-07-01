@@ -8,9 +8,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script>
+    const ROOM_ID = "<%= roomId %>";
+    const username = "<%= userName %>";
+    const audioPrecontrol = "<%= audio %>";
+    const videoPrecontrol = "<%= video %>";
+  </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
   <link rel="stylesheet" href="/css/style_room.css">
   <link rel="stylesheet" href="/css/header_style.css">
 </head>
@@ -18,14 +25,11 @@
 <body>
   <div class="header">
     <p class="Appname">ONGOING CALL</p>
-    <button onclick="goBack()" class="navButton back" type="button" name="button"> <img class="backImg" src="/images/navigate_before.png"></img></button>
-    <button onclick="location.href='/'" class="navButton home" type="button" name="button"> <img class="homeImg" src="/images/home.png"></img></button>
   </div>
   <div class="main-screen">
   <div class="column video-frame">
     <div id="video-chat-grid">
-      <video class="centered userVideo" id="user-video" muted></video>
-      <video class="hidden peerVideo" id="peer-video"></video>
+      <div id="video-grid"></div>
     </div>
   </div>
   <div class="hidden column live-chat" id="liveChat">
@@ -67,12 +71,6 @@
 </div>
 </body>
 <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
-<script>
-  const roomID = "<%= roomId %>";
-  const username = "<%= userName %>";
-  const audioPrecontrol = "<%= audio %>";
-  const videoPrecontrol = "<%= video %>";
-</script>
 <script src="/js/call.js"></script>
 <script type="text/javascript" src="/js/functions.js"></script>
 </html>

@@ -65,48 +65,17 @@ var io = socket(server);
 
 io.on('connection', function(socket){
   console.log("user connected: " + socket.id);
+  socket.on('join-room', (roomId, userId) => {
+    socket.join(roomID)
+    socket.to(roomID).emit('user-connected', userId);
 
-  socket.on('join', function(roomName){
-    var rooms = io.sockets.adapter.rooms;
-    var room = rooms.get(roomName);
-    if(room == undefined){
-      socket.join(roomName);
-      socket.emit('created');
-    }
-    else if(room.size==1){
-      socket.join(roomName);
-      socket.emit('joined');
-    }
-    else{
-      socket.emit('full');
-    }
-    console.log(rooms);
-  });
-
-  socket.on('ready', function(roomName){
-    socket.broadcast.to(roomName).emit("ready");
-  });
-
-  socket.on('candidate', function(candidate, roomName){
-    socket.broadcast.to(roomName).emit("candidate", candidate);
-  });
-
-  socket.on('offer', function(offer, roomName){
-    socket.broadcast.to(roomName).emit("offer", offer);
-  });
-
-  socket.on('answer', function(answer, roomName){
-    socket.broadcast.to(roomName).emit("answer", answer);
-  });
+    socket.on('disconnect', () => {
+      socket.to(roomID).emit('user-disconnected', userId)
+    })
+  })
 
   socket.on('sendingMessage', function(data, roomName){
     console.log(data);
-    io.sockets.in(roomName).emit("broadcastMessage", data);
+    io.sockets.in(roomID).emit("broadcastMessage", data);
   })
-
-  socket.on('disconnect', function(){
-    io.sockets.in(roomID).emit("peerDisconnected");
-    console.log("User disconnected!");
-  })
-
 })
