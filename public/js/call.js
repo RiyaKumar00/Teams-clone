@@ -1,9 +1,11 @@
-const socket = io();
-const videoGrid = document.getElementById('video-grid');
+var socket = io();
+var videoGrid = document.getElementById('video-grid');
+var messageInputBox = document.getElementById("messageInput");
+var sendButton = document.getElementById("sendMessage");
 var userStream;
-const myPeer = new Peer();
-const myVideo = document.createElement('video')
-const peers = {}
+var myPeer = new Peer();
+var myVideo = document.createElement('video')
+var peers = {}
 myVideo.muted = true;
 
 navigator.mediaDevices.getUserMedia({
@@ -68,10 +70,17 @@ function addVideoStream(video, stream) {
   videoGrid.append(video)
 }
 
+messageInputBox.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+     event.preventDefault();
+     sendButton.click();
+  }
+});
+
 function emitMessage(){
   socket.emit('sendingMessage', {
     'message': messageInput.value,
     'username': username
   }, ROOM_ID);
-  message.value='';
+  messageInput.value='';
 }

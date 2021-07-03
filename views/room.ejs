@@ -37,7 +37,7 @@
     <div class="chat-window" id="chat-window">
       <div class="output" id="output"></div>
     </div>
-    <form class="form-inline">
+    <form class="form-inline" onkeypress="return event.keyCode != 13">
       <input class="messageInput" id="messageInput" type="text" name="" value="" placeholder="write a message...">
       <button onclick="emitMessage()" class="controls sendMessage" id="sendMessage" type="button" name="button"></button>
     </form>

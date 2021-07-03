@@ -64,12 +64,13 @@ var server = app.listen(PORT, function(){
 var io = socket(server);
 
 io.on('connection', function(socket){
-  console.log("user connected: " + socket.id);
   socket.on('join-room', (roomID, userId) => {
     socket.join(roomID)
+    console.log("user connected: " + socket.id);
     socket.to(roomID).emit('user-connected', userId);
 
     socket.on('disconnect', () => {
+      console.log("user disconnected: " + socket.id);
       socket.to(roomID).emit('user-disconnected', userId);
     })
   })
