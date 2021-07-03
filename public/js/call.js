@@ -4,7 +4,6 @@ var userStream;
 const myPeer = new Peer();
 const myVideo = document.createElement('video')
 const peers = {}
-var clientNumber = 1;
 myVideo.muted = true;
 
 navigator.mediaDevices.getUserMedia({
@@ -16,7 +15,7 @@ navigator.mediaDevices.getUserMedia({
   addVideoStream(myVideo, stream);
   myPeer.on('call', call => {
     call.answer(stream)
-    const video = document.createElement('video')
+    const video = document.createElement('video');
     call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream)
     })
@@ -24,8 +23,7 @@ navigator.mediaDevices.getUserMedia({
 
   socket.on('user-connected', userId => {
     console.log(userId);
-    clientNumber++;
-    // adjustVideoSize();
+    socket.emit('getNumberOfClients');
     connectToNewUser(userId, stream);
   })
 })
@@ -36,12 +34,17 @@ socket.on('broadcastMessage', function(data){
 });
 
 socket.on('user-disconnected', userId => {
-  clientNumber--;
-  // adjustVideoSize();
+  socket.emit('getNumberOfClients');
   if (peers[userId]) peers[userId].close();
 })
 
+socket.on('numberOfClients', function(clientCount){
+  console.log(clientCount);
+  adjustVideoSize(clientCount-1);
+})
+
 myPeer.on('open', id => {
+  socket.emit('getNumberOfClients');
   socket.emit('join-room', ROOM_ID, id)
 })
 

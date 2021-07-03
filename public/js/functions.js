@@ -7,6 +7,7 @@ var controls = document.getElementById("controls-panel");
 var chats = document.getElementById("output");
 var chatWindow = document.getElementById("chat-window");
 var clientVideoGrid = document.getElementById("video-grid");
+var width;
 
 function goBack() {
   window.history.back();
@@ -48,11 +49,17 @@ function muteUnmute(){
 function showHideChat(){
   if(chatBox.classList.contains("hidden")){
     chatBox.classList.remove("hidden");
-    controls.classList.add("open-chat-controls");
+    clientVideoGrid.classList.add("open-chat-video");
+    if(window.innerWidth<700){
+      clientVideoGrid.style.gridTemplateColumns = "repeat(1, " + width + "vw)";
+    }
   }
   else{
     chatBox.classList.add("hidden");
-    controls.classList.remove("open-chat-controls");
+    clientVideoGrid.classList.remove("open-chat-video");
+    if(window.innerWidth<700){
+      clientVideoGrid.style.gridTemplateColumns = "repeat(4, " + width + "vw)";
+    }
   }
 }
 
@@ -79,10 +86,23 @@ function updateScroll(){
     chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-// function adjustVideoSize(){
-//   var width = (64/clientNumber) - (2*(clientNumber-1));
-//   width = width.toFixed();
-//   console.log(width);
-//   clientVideoGrid.style.gridTemplateColumns = "repeat(auto-fill, " + width + "vw)";
-//   clientVideoGrid.style.gridAutoRows = width + "vw";
-// }
+function adjustVideoSize(clientCount){
+  if(clientCount == 3){
+    clientVideoGrid.style.marginTop = "12vh";
+  }
+  else if(clientCount == 4){
+    clientVideoGrid.style.marginTop = "16vh";
+  }
+  else{
+    clientVideoGrid.style.marginTop = "0";
+  }
+  if(clientCount>4){
+    clientCount = 4;
+  }
+  width = (66/clientCount) - (clientCount-1);
+  width = width.toFixed();
+  console.log(width);
+  clientVideoGrid.style.gridTemplateColumns = "repeat(4, " + width + "vw)";
+  clientVideoGrid.style.gridAutoRows = width + "vw";
+  clientVideoGrid.style.marginLeft = "16vw";
+}

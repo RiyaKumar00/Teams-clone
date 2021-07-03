@@ -65,17 +65,23 @@ var io = socket(server);
 
 io.on('connection', function(socket){
   console.log("user connected: " + socket.id);
-  socket.on('join-room', (roomId, userId) => {
+  socket.on('join-room', (roomID, userId) => {
     socket.join(roomID)
     socket.to(roomID).emit('user-connected', userId);
 
     socket.on('disconnect', () => {
-      socket.to(roomID).emit('user-disconnected', userId)
+      socket.to(roomID).emit('user-disconnected', userId);
     })
   })
 
-  socket.on('sendingMessage', function(data, roomName){
+  socket.on('sendingMessage', function(data, roomID){
     console.log(data);
     io.sockets.in(roomID).emit("broadcastMessage", data);
+  })
+
+  socket.on('getNumberOfClients', function(){
+    var room = io.sockets.adapter.rooms;
+    var clientCount = room.size;
+    socket.to(roomID).emit('numberOfClients', clientCount);
   })
 })
