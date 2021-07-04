@@ -1,28 +1,16 @@
 @media only screen and (min-width: 700px) {
-  .userVideo{
-    height: 15vw;
-    width: 20vw;
-    margin-left: 5vw;
-    margin-right: 2vw;
-  }
-  .peerVideo{
-    height: 33vw;
-    width: 44vw;
-  }
-  .centered{
-    margin-top: 8vw;
-    margin-left: 40vw;
-  }
   .video-frame {
     padding-top: 12vh;
     width:78%;
   }
   .live-chat{
-    border-left: 1px solid #0D146D;
+    border: 1px solid #0D146D;
+    border-radius: 20px;
     background-color: white;
-    height: 100vh;
+    height: 80vh;
     width: 22%;
-    padding-top: 9vh;
+    margin-top: 9vh;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
   }
   .messageInput{
     border: 1px solid #464EB8;
@@ -33,56 +21,56 @@
     font-size: 1.2vw;
     width: 65%;
   }
-  .open-chat-controls{
-    width: 78vw !important;
-  }
   #copyLinkButton{
     background-color: #464EB8;
     width:9vw;
   }
+  #video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 33vw);
+    grid-auto-rows: 33vw;
+    grid-gap: 2vw;
+    margin-left: 34vw;
+  }
+  .open-chat-video{
+    margin-left: 8vw !important;
+  }
 }
 @media only screen and (max-width: 700px) {
-  .userVideo{
-    height: 33vw;
-    width: 44vw;
-    margin-left: 30vw;
-  }
-  .peerVideo{
-    height: 33vw;
-    width: 44vw;
-    margin-left: 30vw;
-  }
-  .centered{
-    margin-top: 20vw;
-  }
   .video-frame {
     padding-top: 12vh;
     width:60%;
   }
   .live-chat{
+    border: 1px solid #0D146D;
+    border-radius: 20px;
     background-color: white;
-    border-left: 1px solid #0D146D;
-    height: 100vh;
+    height: 80vh;
     width: 40%;
-    padding-top: 9vh;
+    margin-top: 9vh;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
   }
   .messageInput{
     border: 1px solid #464EB8;
     border-radius: 10px;
     height: 8vh;
-    margin-left: 1vw;
+    margin-left: 0.5vw;
     padding: 0.5vw;
     font-size: 2.2vw;
-  }
-  .open-chat-video{
-    margin-left: 8vw;
-  }
-  .open-chat-controls{
-    width: 60vw !important;
   }
   #copyLinkButton{
     background-color: #464EB8;
     width:15vw;
+  }
+  #video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 33vw);
+    grid-auto-rows: 33vw;
+    grid-gap: 2vw;
+    margin-left: 34vw;
+  }
+  .open-chat-video{
+    margin-left: 20vw !important;
   }
 }
 ::-webkit-scrollbar {
@@ -117,6 +105,9 @@ body{
   display: table;
   clear: both;
 }
+.form-inline{
+  margin-bottom: 10vh;
+}
 input:focus{
   outline: none;
   box-shadow: none;
@@ -125,7 +116,11 @@ button:focus {
   outline: none;
   box-shadow: none;
 }
+
 video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border: none;
   border-radius: 20px;
   background-color: black;
@@ -186,6 +181,9 @@ video{
   color: white;
   text-align: center;
   width: 100%;
+  font-size: 3.5vh;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .form-inline{
   position: absolute;
