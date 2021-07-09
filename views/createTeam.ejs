@@ -1,0 +1,10 @@
+<%- include("partials/header"); -%>
+</body>
+<img class="create_team_logo" src="/images/add.png" alt="">
+<form class="inputForm" action="/<%= userId %>/createTeam" method="post">
+  <p class="create_team_msg">Enter Details Below to create a new team:</p>
+  <input type="text" class="form-control" id="teamNameInput" name="teamName" placeholder="Team Name">
+  <button class="button_design btn btn-primary" type="submit" name="submitButton">CREATE</button>
+</form>
+<link rel="stylesheet" href="/css/create_style.css">
+</html>

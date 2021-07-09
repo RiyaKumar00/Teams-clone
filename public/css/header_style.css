@@ -4,37 +4,37 @@
   position:absolute;
   text-align: center;
   top:0;
-  width: 100%;
+  width: 100vw;
+  margin-bottom: 10vh;
 }
 .Appname{
-  top:12%;
-  color: white;
-  font-size: 4.5vh;
-  font-weight: lighter;
   position: relative;
+  top:0.5vh;
+  color: white;
+  font-size: 5vh;
+  font-weight: lighter;
+  display: inline-block;
 }
 .navButton{
   background-color: transparent;
   border: none;
+  font-size: 3vh;
+  color: white;
+  display: inline-block;
 }
 .navButton:hover{
-  background-color: transparent;
+  background-color: #666bb3;
+  border-radius: 20px;
+  display: inline-block;
 }
-.back{
-  float: left;
-}
-.home{
-  float: right;
-}
-.backImg{
-  bottom: 18%;
-  left:1%;
+.dashboard{
   position: absolute;
-  width: 6vh;
+  left:3vw;
+  top:2vh;
 }
-.homeImg{
-  bottom: 18%;
+
+.logout{
   position: absolute;
-  right:1%;
-  width: 6vh;
+  top: 2vh;
+  right: 3vw;
 }

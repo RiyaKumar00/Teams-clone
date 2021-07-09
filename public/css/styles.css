@@ -1,0 +1,135 @@
+@media only screen and (min-width: 700px) {
+  .welcomeHeading{
+    color: white;
+    font-size: 20.8vh;
+    text-align: center;
+  }
+  .welcomeSubheading{
+    color: white;
+    margin: 1vh 0 4vh 0;
+    text-align: center;
+    font-size: 8vh;
+  }
+  .container{
+    background-color: #666bb3;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    height: 42vh;
+    width: 42vw !important;
+  }
+  #registerContainer{
+    width: 50vw;
+    display: block;
+    margin: 19vh auto 0 auto;
+    background-color: #464EB8;
+    border-radius: 20px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .welcomeHeading{
+    color: white;
+    font-size: 16vh;
+    text-align: center;
+  }
+  .welcomeSubheading{
+    color: white;
+    margin: 1vh 0 4vh 2vw;
+    text-align: center;
+    font-size: 7.5vh;
+  }
+  .container{
+    background-color: #666bb3;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    height: 42vh;
+    width: 65vw !important;
+    margin-left: 18vw;
+  }
+  #registerContainer{
+    width: 75vw;
+    display: block;
+    padding-bottom: 1vh;
+    margin: 19vh auto 0 auto;
+    background-color: #464EB8;
+    border-radius: 20px;
+  }
+}
+body{
+  font-family: 'Montserrat', sans-serif !important;
+}
+.loginMessage{
+  color: white;
+  font-size: 3.6vh;
+  margin: 0;
+}
+input{
+  color: white;
+}
+input:focus{
+  box-shadow: none !important;
+}
+.homepageBody{
+  background-color: #464EB8;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 3vh;
+}
+.inputForm{
+  padding: 2.5vw 3.5vw;
+}
+.sbutton{
+  background-color: #3c45a3;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+  color: white;
+  display: block;
+  font-size: 3.9vh;
+  height: 6.8vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.2vh;
+  min-width: 14vh;
+  padding: 0 1vw;
+}
+button:hover{
+  background-color: #464EB8;
+}
+button:focus {
+  box-shadow: none;
+  outline: none!important;
+}
+a{
+  text-decoration: underline;
+  color: inherit !important;
+}
+.topSpaced{
+  margin-top: 2vh !important;
+}
+.registerMessage{
+  text-align: center;
+  color: white;
+  font-size: 3vh;
+  margin-top: 2vh;
+}
+#registerButton{
+  background-color: #7B83EB;
+}
+
+#registerButton:hover{
+  background-color: #666bb3;
+}
+
+.alert{
+  position: absolute;
+  top: 9vh;
+  width: 94vw;
+  font-size: 3vh !important;
+  margin: 0 3vw;
+}
+
+.loginStatusMessage{
+  color: white;
+  text-align: center;
+}

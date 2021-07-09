@@ -1,0 +1,82 @@
+<%- include("partials/header"); -%>
+<div class="row">
+  <div class="left column"">
+    <img class="user_logo" src="/images/person.png" alt="">
+    <p class="user_name"><%= user.name %></p>
+    <p class="user_organization"><%= user.organization %></p>
+    <p class="user_contact"><%= user.email %></p>
+    <p class="user_contact"><%= user.mobileNumber %></p>
+  </div>
+  <div class="right column">
+    <div class="headbar">
+      <button id="add_button" type="button" class="button_design btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#shareTeamID">ADD USER</button>
+      <button id="startCall_button" class="button_design btn btn-outline-secondary" type="button" name="button" data-bs-toggle="modal" data-bs-target="#joinMeeting"><%= callStatus %></button>
+    </div>
+    <div id="chatDisplay" class="chatDisplay">
+      <!-- chats here -->
+    </div>
+    <form class="messageForm" onkeypress="return event.keyCode != 13">
+      <div class="input-group">
+        <input id="messageValue" type="text" class="form-control" name="" value="" placeholder="Enter a message here">
+        <button onclick="emitMessage()" type="button" id="sendMessage_button" class="btn btn-outline-secondary">SEND</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal fade" id="shareTeamID" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share Team ID</h5>
+        <button onclick="clearCopied()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Share this Team ID to add participants:
+        <p class="link" id="linkSpace"><%= team.teamID %></p>
+      </div>
+      <div class="modal-footer">
+      <span id="copiedSuccess"></span><button onclick="copyLink()" type="button" class="copy_button btn btn-secondary">COPY!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="joinMeeting" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">START/JOIN CALL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Start/Join an instant meeting with: <br><br>
+        <form action="/<%= user._id %>/<%= team.teamID %>" method="post">
+          <div class="form-check form-switch">
+            <input id="videoPrecontrol" class="form-check-input" name="videoControl" type="checkbox" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Camera</label>
+          </div>
+          <div class="form-check form-switch">
+            <input id="audioPrecontrol" class="form-check-input" name="audioControl" type="checkbox" checked>
+            <label class="form-check-label" for="flexSwitchCheckChecked">Microphone</label>
+          </div>
+          <br><br>
+          <div class="modal-footer">
+            <button class="copy_button btn btn-secondary" type="submit" name="button"><%= callStatus %></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<link rel="stylesheet" href="/css/dashboard_style.css">
+<link rel="stylesheet" href="/css/teamTemplate_style.css">
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+<script>
+  const ROOM_ID = "<%= team.teamID %>";
+  const username = "<%= user.name %>";
+  const userID = "<%= user._id %>";
+  const teams = <%- JSON.stringify(user.teams) %>;
+</script>
+<script type="text/javascript" src="/js/chatapp.js"></script>
+</html>

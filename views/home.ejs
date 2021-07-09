@@ -1,13 +1,32 @@
-<%- include("partials/header"); -%>
-  <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_Lcwy20.json"  background="transparent"  speed="1" loop autoplay></lottie-player>
-<div class="homeConentContainer">
-  <div class="homeContent">
-    <p class="taskQuery">Hey <%= userName %>! What would you like to do today?</p>
-    <form  method="post">
-      <button formaction="/user/<%= userName %>/startCall" class="buttonDesign" type="submit" name="startCallButton">START A CALL</button>
-      <button formaction="/user/<%= userName %>/joinCall" class="buttonDesign spaced-left" type="submit" name="joinCallButton">JOIN A CALL</button>
-    </form>
-  </div>
-</div>
-</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamCall App</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </head>
+  <body class="homepageBody">
+    <h1 class="welcomeHeading">Hello!</h1>
+    <h3 class="welcomeSubheading">Welcome to TeamCall</h3>
+    <% if(loginStatus != ''){%>
+      <div class="loginStatusMessage"><p><%= loginStatus %></p></div>
+    <% } %>
+    <div class="container">
+      <form class="inputForm" action="/" method="post">
+        <p class="loginMessage">Please Login to Continue:</p>
+        <input type="email" class="topSpaced form-control" id="emailInput" name="emailID" placeholder="Email ID">
+        <input type="password" class="topSpaced form-control" id="passwordInput" name="password" placeholder="Password">
+        <button class="sbutton" type="submit" name="submitButton">GO</button>
+      </form>
+    </div>
+    <p class="registerMessage">Not a User? <a class="registerLink" href="/register">Register Here</a></p>
+  </body>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="text/javascript" src="/js/functions.js"></script>
 </html>

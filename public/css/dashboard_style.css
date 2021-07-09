@@ -1,0 +1,138 @@
+@media only screen and (min-width: 600px) {
+  .left{
+    width: 25%;
+    padding-top: 18vh !important;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+  }
+  .right{
+    width: 75%;
+  }
+  .teams{
+    background-color: #464EB8 !important;
+    box-shadow: none !important;
+    border: none;
+    height: 10vw;
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_design{
+    background-color: #464EB8 !important;
+    box-shadow: none !important;
+    border: none;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    color: white;
+    width: 15vw;
+  }
+  .buttons{
+    position: absolute;
+    bottom: 5vh;
+    left: 35vw;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    margin-left: 10vw;
+    text-align: center;
+    grid-gap: 5vw;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .left{
+    width:5vw;
+    visibility: hidden;
+    padding-top: 18vh !important;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  }
+  .right{
+    width: 95vw;
+  }
+  .teams{
+    background-color: #464EB8 !important;
+    box-shadow: none !important;
+    border: none;
+    height: 20vw;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_design{
+    background-color: #464EB8 !important;
+    box-shadow: none !important;
+    border: none;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    color: white;
+    width: 20vw;
+  }
+  .buttons{
+    position: absolute;
+    bottom: 5vh;
+    left: 20vw;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    margin-left: 10vw;
+    text-align: center;
+    grid-gap: 5vw;
+  }
+}
+
+body{
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+p{
+  margin: 0;
+}
+
+.row{
+  margin-top: 9vh;
+}
+
+.column {
+  float: left;
+  padding: 2vw;
+  height: 91vh;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.user_logo{
+  width: 8vw;
+}
+
+.user_name{
+  margin-top: 2vh;
+  font-size: 4vh;
+  color: #464EB8;
+}
+
+.user_organization{
+  font-size: 3.5vh;
+  color: #464EB8;
+}
+
+.user_contact{
+  color: #7B83EB;
+}
+
+.teams:hover{
+  background-color: #7B83EB !important;
+}
+
+.button_design:hover{
+  background-color: #7B83EB !important;
+}

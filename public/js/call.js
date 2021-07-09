@@ -1,7 +1,7 @@
 var socket = io();
 var videoGrid = document.getElementById('video-grid');
 var messageInputBox = document.getElementById("messageInput");
-var sendButton = document.getElementById("sendMessage");
+var sendButton = document.getElementById("sendMessage_button");
 var userStream;
 var myPeer = new Peer();
 var myVideo = document.createElement('video')
@@ -24,8 +24,6 @@ navigator.mediaDevices.getUserMedia({
   })
 
   socket.on('user-connected', userId => {
-    console.log(userId);
-    socket.emit('getNumberOfClients');
     connectToNewUser(userId, stream);
   })
 })
@@ -36,18 +34,16 @@ socket.on('broadcastMessage', function(data){
 });
 
 socket.on('user-disconnected', userId => {
-  socket.emit('getNumberOfClients');
   if (peers[userId]) peers[userId].close();
 })
 
-socket.on('numberOfClients', function(clientCount){
-  console.log(clientCount);
-  adjustVideoSize(clientCount-1);
+socket.on('numberOfClients', function(clients){
+  peer = clients;
+  console.log(clients.length);
 })
 
 myPeer.on('open', id => {
-  socket.emit('getNumberOfClients');
-  socket.emit('join-room', ROOM_ID, id)
+  socket.emit('join-call', ROOM_ID, id);
 })
 
 function connectToNewUser(userId, stream) {
@@ -67,7 +63,7 @@ function addVideoStream(video, stream) {
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  videoGrid.append(video)
+  videoGrid.append(video);
 }
 
 messageInputBox.addEventListener("keyup", function(event) {
@@ -80,7 +76,8 @@ messageInputBox.addEventListener("keyup", function(event) {
 function emitMessage(){
   socket.emit('sendingMessage', {
     'message': messageInput.value,
-    'username': username
+    'username': username,
+    'userID': userID
   }, ROOM_ID);
   messageInput.value='';
 }
