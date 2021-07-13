@@ -1,0 +1,147 @@
+/* CSS FOR TEAM CHANNEL PAGE */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e8e8e8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #464EB8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0D146D;
+}
+
+@media only screen and (min-width: 600px) {
+  .chatDisplay {
+    height: 82%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    overflow: auto;
+  }
+
+  .messageForm {
+    position: absolute;
+    width: 70vw;
+    bottom: 5vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .chatDisplay {
+    height: 72%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    overflow: auto;
+  }
+
+  .messageForm {
+    position: absolute;
+    width: 90vw;
+    bottom: 5vh;
+  }
+
+  #schedule_button {
+    width: 22vw;
+  }
+}
+
+.message {
+  color: white;
+  border-radius: 20px;
+  padding: 0.5vw 1vw;
+  word-wrap: break-word;
+  margin-bottom: 2vh;
+}
+
+.received {
+  background-color: #464EB8;
+  text-align: left;
+}
+
+.sent {
+  background-color: #7B83EB;
+  text-align: right;
+}
+
+.sender {
+  background-color: white !important;
+  font-size: 2.5vh;
+  margin-top: 3vh;
+}
+
+.button_design {
+  background-color: #464EB8 !important;
+  box-shadow: none !important;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 2vh;
+  color: white;
+  /* width: 10vw; */
+}
+
+#messageValue:focus {
+  box-shadow: none;
+}
+
+#sendMessage_button {
+  background-color: #464EB8;
+  color: white;
+}
+
+#sendMessage_button:hover {
+  background-color: #7B83EB;
+}
+
+#add_button {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#startCall_button {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 0.5vw;
+  font-size: 2.4vh;
+}
+
+.copy_button {
+  background-color: #464EB8 !important;
+  box-shadow: none !important;
+}
+
+#copiedSuccess {
+  color: green;
+  margin-right: 2vw;
+}
+
+.form-check {
+  margin-left: 12vw;
+}
+
+.form-check-input {
+  box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0) !important;
+  border-color: #464EB8 !important;
+}
+
+.form-check-input:checked {
+  background-color: #464EB8 !important;
+}
+
+.form-check-label {
+  color: #464EB8;
+  font-size: 3vh;
+}

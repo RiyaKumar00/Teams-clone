@@ -6,19 +6,20 @@
   <title>TeamCall App</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- LINKING STYlESHEETS AND JS FILES -->
   <link rel="icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header_style.css">
+  <link rel="stylesheet" href="/css/header_style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script type="text/javascript" src="/js/functions.js"></script>
+  <script type="text/javascript" src="/js/header_functions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-  <body class="templateBody">
-    <div class="header">
-      <p class="Appname">TeamCall</p>
-      <button onclick="goBack()" class="navButton back" type="button" name="button"> <img class="backImg" src="/images/navigate_before.png"></img></button>
-      <button onclick="location.href='/'" class="navButton home" type="button" name="button"> <img class="homeImg" src="/images/home.png"></img></button>
-    </div>
+
+<body class="templateBody">
+  <!-- HEADER Structure -->
+  <div class="header">
+    <button onclick="goToDashboard()" class="navButton dashboard" type="button" name="button">Dashboard</button>
+    <p class="Appname">TeamCall</p>
+    <button onclick="location.href='/'" class="navButton logout" type="button" name="button">Logout</button>
+  </div>

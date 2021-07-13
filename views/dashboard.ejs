@@ -1,0 +1,32 @@
+<%- include("partials/header"); -%>
+<!-- Importing Header file -->
+<!-- Linking stylesheets and javascript -->
+<link rel="stylesheet" href="/css/dashboard_style.css">
+<div class="row">
+  <!-- USER INFO Panel -->
+  <div class="left column"">
+    <img class=" user_logo" src="/images/person.png" alt="">
+    <p class="user_name"><%= user.name %></p>
+    <p class="user_organization"><%= user.organization %></p>
+    <p class="user_contact"><%= user.email %></p>
+    <p class="user_contact"><%= user.mobileNumber %></p>
+  </div>
+  <!-- Teams Display -->
+  <div class="right column">
+    <div id="teamGrid" class="grid">
+    </div>
+    <div class="buttons">
+      <a href='/<%= user._id %>/joinTeam' class="button_design btn btn-primary" type="button" name="button">JOIN NEW</a>
+      <a href='/<%= user._id %>/createTeam' class="button_design btn btn-primary" type="button" name="button">CREATE NEW</a>
+    </div>
+  </div>
+</div>
+</body>
+<!-- Passing user ID and user teams list from the server -->
+<script>
+  const userID = "<%= user._id %>";
+  const teams = <%- JSON.stringify(user.teams) %> ;
+</script>
+<script type="text/javascript" src="/js/functions.js"></script>
+
+</html>

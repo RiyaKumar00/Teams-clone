@@ -1,76 +1,71 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>Meeting Room</title>
-  <link rel="icon" href="/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script>
-    const ROOM_ID = "<%= roomId %>";
-    const username = "<%= userName %>";
-    const audioPrecontrol = "<%= audio %>";
-    const videoPrecontrol = "<%= video %>";
-  </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
-  <link rel="stylesheet" href="/css/style_room.css">
-  <link rel="stylesheet" href="/css/header_style.css">
-</head>
-
-<body>
-  <div class="header">
-    <p class="Appname">ONGOING CALL</p>
-  </div>
-  <div class="main-screen">
-  <div class="column video-frame">
+<%- include("partials/header"); -%>
+<!-- Importing Header file -->
+<!-- Linking stylesheets and javascript -->
+<link rel="stylesheet" href="/css/room_style.css">
+<div class="main-screen">
+  <div id="video-frame" class="column video-frame">
     <div id="video-chat-grid">
-      <div id="video-grid"></div>
+      <div id="video-grid">
+        <!-- Video Display Here -->
+      </div>
     </div>
   </div>
   <div class="hidden column live-chat" id="liveChat">
     <div class="chat-heading">Chat</div>
     <div class="chat-window" id="chat-window">
-      <div class="output" id="output"></div>
+      <div class="output" id="output">
+        <!-- Chats Display Here -->
+      </div>
     </div>
-    <form class="form-inline" onkeypress="return event.keyCode != 13">
-      <input class="messageInput" id="messageInput" type="text" name="" value="" placeholder="write a message...">
-      <button onclick="emitMessage()" class="controls sendMessage" id="sendMessage" type="button" name="button"></button>
+    <!-- Send message form  -->
+    <form class="messageForm" onkeypress="return event.keyCode != 13">
+      <div class="input-group">
+        <input id="messageInput" type="text" class="form-control" name="" value="" placeholder="Enter a message here">
+        <button onclick="emitMessage()" type="button" id="sendMessage_button" class="btn btn-outline-secondary">SEND</button>
+      </div>
     </form>
   </div>
 </div>
+<!-- Call Controls on the bottom -->
 <div class="column bottom-controls" id="controls-panel">
-  <button onclick="goBack()" class="controls disconnect-button" type="button" name="button"></button>
-  <button data-toggle="modal" data-target="#shareMeetingLink" class="controls invite-button" type="button" name="button"></button>
+  <button onclick="endCall()" class="controls disconnect-button" type="button" name="button"></button>
+  <button class="controls invite-button" type="button" name="button" data-bs-toggle="modal" data-bs-target="#shareTeamID"></button>
   <button onclick="muteUnmute()" id="micButton" class="controls mic-button" type="button" name="button"></button>
   <button onclick="playPause()" id="cameraButton" class="controls camera-button" type="button" name="button"></button>
   <button onclick="showHideChat()" id="chatButton" class="controls chat-button" type="button" name="button"></button>
 </div>
-<div class="modal fade" id="shareMeetingLink" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<!-- MODAL to share team ID -->
+<div class="modal fade" id="shareTeamID" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Share Meeting ID</h5>
-        <button onclick="clearCopied()" type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Share Team ID</h5>
+        <button onclick="clearCopied()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Share this meeting ID to add participants:
-        <p class="link" id="linkSpace"><%= roomId %></p>
+        Share this Team ID to add participants:
+        <p class="link" id="linkSpace"><%= team.teamID %></p>
       </div>
       <div class="modal-footer">
-        <span id="copiedSuccess"></span><button onclick="copyLink()" id="copyLinkButton" type="button" class="btn btn-secondary">Copy</button>
+        <span id="copiedSuccess"></span><button onclick="copyLink()" type="button" class="copy_button btn btn-secondary">COPY!</button>
       </div>
     </div>
   </div>
 </div>
 </body>
+<!-- Linking custom javascripts, socket and peerjs script -->
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
 <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
-<script src="/js/call.js"></script>
-<script type="text/javascript" src="/js/functions.js"></script>
+<!-- Passing room ID, user ID. username, team list and pre-controls from the server -->
+<script>
+  const ROOM_ID = "<%= roomID %>";
+  const userID = "<%= user._id %>";
+  const username = "<%= user.name %>";
+  const audioPrecontrol = "<%= audio %>";
+  const videoPrecontrol = "<%= video %>";
+  const teams = <%- JSON.stringify(user.teams) %> ;
+</script>
+<script type="text/javascript" src="/js/call.js"></script>
+<script type="text/javascript" src="/js/call_controls.js"></script>
+
 </html>
