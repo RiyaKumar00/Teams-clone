@@ -1,16 +1,19 @@
+/* CSS FOR LANDING ANF REGISTERATION PAGE */
 @media only screen and (min-width: 700px) {
-  .welcomeHeading{
+  .welcomeHeading {
     color: white;
     font-size: 20.8vh;
     text-align: center;
   }
-  .welcomeSubheading{
+
+  .welcomeSubheading {
     color: white;
     margin: 1vh 0 4vh 0;
     text-align: center;
     font-size: 8vh;
   }
-  .container{
+
+  .container {
     background-color: #666bb3;
     background-color: rgba(255, 255, 255, 0.20);
     border-radius: 10px;
@@ -18,7 +21,8 @@
     height: 42vh;
     width: 42vw !important;
   }
-  #registerContainer{
+
+  #registerContainer {
     width: 50vw;
     display: block;
     margin: 19vh auto 0 auto;
@@ -26,19 +30,22 @@
     border-radius: 20px;
   }
 }
+
 @media only screen and (max-width: 700px) {
-  .welcomeHeading{
+  .welcomeHeading {
     color: white;
     font-size: 16vh;
     text-align: center;
   }
-  .welcomeSubheading{
+
+  .welcomeSubheading {
     color: white;
     margin: 1vh 0 4vh 2vw;
     text-align: center;
     font-size: 7.5vh;
   }
-  .container{
+
+  .container {
     background-color: #666bb3;
     background-color: rgba(255, 255, 255, 0.20);
     border-radius: 10px;
@@ -47,7 +54,8 @@
     width: 65vw !important;
     margin-left: 18vw;
   }
-  #registerContainer{
+
+  #registerContainer {
     width: 75vw;
     display: block;
     padding-bottom: 1vh;
@@ -56,29 +64,36 @@
     border-radius: 20px;
   }
 }
-body{
+
+body {
   font-family: 'Montserrat', sans-serif !important;
 }
-.loginMessage{
+
+.loginMessage {
   color: white;
   font-size: 3.6vh;
   margin: 0;
 }
-input{
+
+input {
   color: white;
 }
-input:focus{
+
+input:focus {
   box-shadow: none !important;
 }
-.homepageBody{
+
+.homepageBody {
   background-color: #464EB8;
   font-family: 'Montserrat', sans-serif;
   padding-top: 3vh;
 }
-.inputForm{
+
+.inputForm {
   padding: 2.5vw 3.5vw;
 }
-.sbutton{
+
+.sbutton {
   background-color: #3c45a3;
   border: none;
   border-radius: 20px;
@@ -93,35 +108,41 @@ input:focus{
   min-width: 14vh;
   padding: 0 1vw;
 }
-button:hover{
+
+button:hover {
   background-color: #464EB8;
 }
+
 button:focus {
   box-shadow: none;
-  outline: none!important;
+  outline: none !important;
 }
-a{
+
+a {
   text-decoration: underline;
   color: inherit !important;
 }
-.topSpaced{
+
+.topSpaced {
   margin-top: 2vh !important;
 }
-.registerMessage{
+
+.registerMessage {
   text-align: center;
   color: white;
   font-size: 3vh;
   margin-top: 2vh;
 }
-#registerButton{
+
+#registerButton {
   background-color: #7B83EB;
 }
 
-#registerButton:hover{
+#registerButton:hover {
   background-color: #666bb3;
 }
 
-.alert{
+.alert {
   position: absolute;
   top: 9vh;
   width: 94vw;
@@ -129,7 +150,7 @@ a{
   margin: 0 3vw;
 }
 
-.loginStatusMessage{
+.loginStatusMessage {
   color: white;
   text-align: center;
 }

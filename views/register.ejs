@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>TeamCall App</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/css/header_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </head>
-    <body class="templateBody">
-      <div class="header">
-        <button onclick="location.href='/'" class="navButton dashboard" type="button" name="button">Back</button>
-        <p class="Appname">TeamCall</p>
-      </div>
 
-<% if(status != ''){%>
-    <% if(status == 1){ %>
-      <div class="alert alert-success" role="alert">
-        Yay! You have Successfully Registered. Please head over to the <a href='/'>home</a> page to login.
-      </div>
-    <% } %>
-    <% if(status == 2){%>
-      <div class="alert alert-danger" role="alert">
-        Uh-oh! The email ID entered is already registered. Please login.
-      </div>
-    <% } %>
+<head>
+  <meta charset="utf-8">
+  <title>TeamCall App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Linking stylesheets and javascript -->
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="/css/header_style.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body class="templateBody">
+  <div class="header">
+    <button onclick="location.href='/'" class="navButton dashboard" type="button" name="button">Back</button>
+    <p class="Appname">TeamCall</p>
   </div>
-<% } %>
-<div id="registerContainer">
-  <form class="inputForm" action="/register" method="post">
-    <p class="loginMessage">PLEASE ENTER DETAILS BELOW:</p>
-    <input type="text" class="topSpaced form-control" id="nameInput" name="fullName" placeholder="Full Name" required>
-    <input type="text" class="topSpaced form-control" id="orgInput" name="organization" placeholder="Organization">
-    <input type="text" class="topSpaced form-control" id="mobileInput" name="mobileNumber" placeholder="Mobile Number" required>
-    <input type="email" class="topSpaced form-control" id="emailInput" name="emailID" placeholder="Email ID" required>
-    <input type="password" class="topSpaced form-control" id="passwordInput" name="password" placeholder="Password" required>
-    <button class="sbutton btn btn-primary" id="registerButton" type="submit" name="submitButton">Register</button>
-  </form>
-</div>
+  <!-- Checking for registration status from server -->
+  <% if(status != ''){%>
+  <% if(status == 1){ %>
+  <div class="alert alert-success" role="alert">
+    Yay! You have Successfully Registered. Please head over to the <a href='/'>home</a> page to login.
+  </div>
+  <% } %>
+  <% if(status == 2){%>
+  <div class="alert alert-danger" role="alert">
+    Uh-oh! The email ID entered is already registered. Please login.
+  </div>
+  <% } %>
+  </div>
+  <% } %>
+  <div id="registerContainer">
+    <!-- Registeration Form -->
+    <form class="inputForm" action="/register" method="post">
+      <p class="loginMessage">PLEASE ENTER DETAILS BELOW:</p>
+      <input type="text" class="topSpaced form-control" id="nameInput" name="fullName" placeholder="Full Name" required>
+      <input type="text" class="topSpaced form-control" id="orgInput" name="organization" placeholder="Organization">
+      <input type="text" class="topSpaced form-control" id="mobileInput" name="mobileNumber" placeholder="Mobile Number" required>
+      <input type="email" class="topSpaced form-control" id="emailInput" name="emailID" placeholder="Email ID" required>
+      <input type="password" class="topSpaced form-control" id="passwordInput" name="password" placeholder="Password" required>
+      <button class="sbutton btn btn-primary" id="registerButton" type="submit" name="submitButton">Register</button>
+    </form>
+  </div>
 </body>
-<link rel="stylesheet" href="/css/styles.css">
+
 </html>

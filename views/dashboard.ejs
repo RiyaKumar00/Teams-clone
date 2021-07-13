@@ -1,12 +1,17 @@
 <%- include("partials/header"); -%>
+<!-- Importing Header file -->
+<!-- Linking stylesheets and javascript -->
+<link rel="stylesheet" href="/css/dashboard_style.css">
 <div class="row">
+  <!-- USER INFO Panel -->
   <div class="left column"">
-    <img class="user_logo" src="/images/person.png" alt="">
+    <img class=" user_logo" src="/images/person.png" alt="">
     <p class="user_name"><%= user.name %></p>
     <p class="user_organization"><%= user.organization %></p>
     <p class="user_contact"><%= user.email %></p>
     <p class="user_contact"><%= user.mobileNumber %></p>
   </div>
+  <!-- Teams Display -->
   <div class="right column">
     <div id="teamGrid" class="grid">
     </div>
@@ -17,10 +22,11 @@
   </div>
 </div>
 </body>
-<link rel="stylesheet" href="/css/dashboard_style.css">
+<!-- Passing user ID and user teams list from the server -->
 <script>
   const userID = "<%= user._id %>";
-  const teams = <%- JSON.stringify(user.teams) %>;
+  const teams = <%- JSON.stringify(user.teams) %> ;
 </script>
 <script type="text/javascript" src="/js/functions.js"></script>
+
 </html>

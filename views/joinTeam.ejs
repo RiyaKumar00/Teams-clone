@@ -1,13 +1,24 @@
 <%- include("partials/header"); -%>
-</body>
+<!-- Importing Header file -->
+<!-- Linking stylesheets and javascript -->
+<link rel="stylesheet" href="/css/create_style.css">
 <img class="create_team_logo" src="/images/join.png" alt="">
+<!-- Form to join a new team -->
 <form class="inputForm" action="/<%= userId %>/joinTeam" method="post">
   <p class="create_team_msg">Enter Team ID Below to join:</p>
   <input type="text" class="form-control" id="teamIDInput" name="teamID" placeholder="Team ID">
   <button class="button_design btn btn-primary" type="submit" name="submitButton">JOIN</button>
 </form>
+<!-- Checking for any errors in joining the eam -->
 <% if(joinStatus != ''){%>
-  <div class="joinStatusMessage"><p><%= joinStatus %></p></div>
+<div class="joinStatusMessage">
+  <p><%= joinStatus %></p>
+</div>
 <% } %>
-<link rel="stylesheet" href="/css/create_style.css">
+</body>
+<!-- Passing user ID from the server -->
+<script type="text/javascript">
+  const userID = "<%= userId %>";
+</script>
+
 </html>

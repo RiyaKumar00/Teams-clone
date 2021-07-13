@@ -1,37 +1,64 @@
+/* CSS FOR DASHBOARD PAGE */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e8e8e8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #464EB8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0D146D;
+}
+
 @media only screen and (min-width: 600px) {
-  .left{
+  .left {
     width: 25%;
     padding-top: 18vh !important;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     word-wrap: break-word;
   }
-  .right{
+
+  .right {
     width: 75%;
   }
-  .teams{
+
+  .teams {
     background-color: #464EB8 !important;
     box-shadow: none !important;
     border: none;
     height: 10vw;
     width: 10vw;
+    font-size: 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .button_design{
+
+  .button_design {
     background-color: #464EB8 !important;
     box-shadow: none !important;
     border: none;
+    font-size: 3vh;
     margin-left: 5vw;
     margin-right: 5vw;
     color: white;
     width: 15vw;
   }
-  .buttons{
+
+  .buttons {
     position: absolute;
     bottom: 5vh;
     left: 35vw;
   }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 100px);
@@ -41,17 +68,19 @@
   }
 }
 
-@media only screen and (max-width: 600px){
-  .left{
-    width:5vw;
+@media only screen and (max-width: 600px) {
+  .left {
+    width: 5vw;
     visibility: hidden;
     padding-top: 18vh !important;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   }
-  .right{
+
+  .right {
     width: 95vw;
   }
-  .teams{
+
+  .teams {
     background-color: #464EB8 !important;
     box-shadow: none !important;
     border: none;
@@ -61,7 +90,8 @@
     justify-content: center;
     align-items: center;
   }
-  .button_design{
+
+  .button_design {
     background-color: #464EB8 !important;
     box-shadow: none !important;
     border: none;
@@ -70,11 +100,13 @@
     color: white;
     width: 20vw;
   }
-  .buttons{
+
+  .buttons {
     position: absolute;
     bottom: 5vh;
     left: 20vw;
   }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -84,16 +116,16 @@
   }
 }
 
-body{
+body {
   overflow-x: hidden;
   font-family: 'Montserrat', sans-serif !important;
 }
 
-p{
+p {
   margin: 0;
 }
 
-.row{
+.row {
   margin-top: 9vh;
 }
 
@@ -110,29 +142,30 @@ p{
   clear: both;
 }
 
-.user_logo{
+.user_logo {
   width: 8vw;
 }
 
-.user_name{
+.user_name {
   margin-top: 2vh;
   font-size: 4vh;
   color: #464EB8;
 }
 
-.user_organization{
+.user_organization {
   font-size: 3.5vh;
   color: #464EB8;
 }
 
-.user_contact{
+.user_contact {
   color: #7B83EB;
+  font-size: 3vh;
 }
 
-.teams:hover{
+.teams:hover {
   background-color: #7B83EB !important;
 }
 
-.button_design:hover{
+.button_design:hover {
   background-color: #7B83EB !important;
 }

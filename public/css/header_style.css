@@ -1,39 +1,56 @@
-.header{
+/* CSS FOR HEADER DESIGN */
+@media only screen and (min-width: 600px) {
+  .navButton {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5vw;
+    color: white;
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navButton {
+    background-color: transparent;
+    border: none;
+    font-size: 3.2vw;
+    color: white;
+    display: inline-block;
+  }
+}
+
+.header {
   background-color: #464EB8;
   height: 9vh;
-  position:absolute;
+  position: absolute;
   text-align: center;
-  top:0;
+  top: 0;
   width: 100vw;
   margin-bottom: 10vh;
 }
-.Appname{
+
+.Appname {
   position: relative;
-  top:0.5vh;
+  top: 0.5vh;
   color: white;
   font-size: 5vh;
   font-weight: lighter;
   display: inline-block;
 }
-.navButton{
-  background-color: transparent;
-  border: none;
-  font-size: 3vh;
-  color: white;
-  display: inline-block;
-}
-.navButton:hover{
+
+.navButton:hover {
   background-color: #666bb3;
   border-radius: 20px;
   display: inline-block;
 }
-.dashboard{
+
+.dashboard {
   position: absolute;
-  left:3vw;
-  top:2vh;
+  left: 3vw;
+  top: 2vh;
 }
 
-.logout{
+.logout {
   position: absolute;
   top: 2vh;
   right: 3vw;

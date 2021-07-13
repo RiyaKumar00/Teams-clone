@@ -1,15 +1,16 @@
-body{
+/* CSS FOR CREATE A NEW ROOM PAGE */
+body {
   text-align: center;
   padding-top: 9vh;
   font-family: 'Montserrat', sans-serif !important;
 }
 
-.create_team_logo{
+.create_team_logo {
   margin-top: 12vh;
   width: 15vh;
 }
 
-.button_design{
+.button_design {
   background-color: #464EB8 !important;
   box-shadow: none !important;
   border: none;
@@ -18,24 +19,24 @@ body{
   width: 15vw;
 }
 
-.button_design:hover{
+.button_design:hover {
   background-color: #7B83EB !important;
 }
 
-.create_team_msg{
+.create_team_msg {
   font-size: 5vh;
   color: #7B83EB;
 }
 
-.inputForm{
+.inputForm {
   padding: 2.5vw 30vw;
 }
 
-input:focus{
+input:focus {
   box-shadow: none !important;
 }
 
-.joinStatusMessage{
+.joinStatusMessage {
   font-size: 4vh;
   color: red;
 }
